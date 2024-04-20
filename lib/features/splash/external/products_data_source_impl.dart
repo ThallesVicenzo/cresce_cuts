@@ -1,19 +1,23 @@
-import 'package:cresce_cuts/core/client/client_http.dart';
+import 'dart:convert';
+
+import 'package:cresce_cuts/core/secure_storage/keys/secure_storage_keys.dart';
+import 'package:cresce_cuts/core/secure_storage/secure_storage.dart';
 import 'package:cresce_cuts/features/splash/domain/entities/product_entity.dart';
 import 'package:cresce_cuts/features/splash/infra/models/product_model.dart';
 
 import '../infra/data_source/products_data_source.dart';
 
 class ProductsDataSourceImpl implements ProductsDataSource {
-  final ClientHttp clientHttp;
+  final SecureStorage storage;
 
-  ProductsDataSourceImpl({required this.clientHttp});
+  ProductsDataSourceImpl({required this.storage});
 
   @override
   Future<List<ProductEntity>> call() async {
-    final reponse = await clientHttp.get('https://fakestoreapi.com/products');
+    final response = jsonDecode(
+        await storage.read(key: SecureStorageKeys.discounts.name) ?? '[]');
 
-    final productsList = reponse.data as List;
+    final productsList = response as List;
 
     return productsList.map((e) => ProductModel.fromJson(e)).toList();
   }
