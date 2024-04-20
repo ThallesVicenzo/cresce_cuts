@@ -15,9 +15,7 @@ class SplashModule extends Module {
     i.add<ProductsUseCase>(ProductsUsecaseImp.new);
     i.add<ProductsRepository>(ProductsRepositoryImpl.new);
     i.addInstance<ProductsDataSource>(
-      ProductsDataSourceImpl(
-        clientHttp: Modular.get(key: 'client'),
-      ),
+      ProductsDataSourceImpl(storage: Modular.get(key: 'storage')),
     );
     i.add<SplashController>(SplashController.new);
   }
