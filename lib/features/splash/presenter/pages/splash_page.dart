@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:cresce_cuts/core/page_state.dart';
 import 'package:design_system/enums/app_images.dart';
 import 'package:design_system/pages/default_erro_page.dart';
@@ -22,7 +24,9 @@ class SplashPage extends StatefulWidget {
 class _SplashScreen extends State<SplashPage> {
   @override
   void initState() {
-    widget.controller.getProducts();
+    Timer(const Duration(seconds: 2), () {
+      widget.controller.getProducts();
+    });
     widget.controller.state.addListener(listenableErrorState);
     super.initState();
   }
