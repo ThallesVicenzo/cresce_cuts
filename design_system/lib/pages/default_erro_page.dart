@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../enums/app_images.dart';
-import '../widgets/asset_image_widget.dart';
-import '../widgets/default_button.dart';
-import '../widgets/ui_overlay_color.dart';
+import '../widgets/buttons/default_button.dart';
+import '../widgets/colors/ui_overlay_color.dart';
+import '../widgets/image/asset_image_widget.dart';
 
 class ErrorPageParams {
   /// Title of error page

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../enums/app_images.dart';
+import '../../enums/app_images.dart';
 
 class AssetImageWidget extends StatelessWidget {
   final AppImage image;
