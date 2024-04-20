@@ -1,4 +1,4 @@
-import 'package:design_system/widgets/ui_overlay_color.dart';
+import 'package:design_system/widgets/colors/ui_overlay_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
@@ -16,6 +16,7 @@ class AppWidget extends StatelessWidget {
       routerConfig: Modular.routerConfig,
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.white,
+        fontFamily: 'Rubik',
       ),
       builder: (context, child) {
         return UiOverlayColor(
