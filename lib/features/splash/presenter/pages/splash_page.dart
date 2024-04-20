@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:cresce_cuts/core/page_state.dart';
 import 'package:design_system/enums/app_images.dart';
 import 'package:design_system/pages/default_erro_page.dart';
-import 'package:design_system/widgets/asset_image_widget.dart';
+import 'package:design_system/widgets/image/asset_image_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
