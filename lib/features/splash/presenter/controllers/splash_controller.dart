@@ -30,7 +30,7 @@ class SplashController extends ChangeNotifier {
       (left) => state.value = ErrorState(error: left),
       (right) {
         state.value = SuccessState(data: right);
-        // opacity.value = 0;
+        opacity.value = 0;
       },
     );
   }
