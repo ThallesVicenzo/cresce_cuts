@@ -40,6 +40,7 @@ dependencies:
   flutter_modular:
   dio:
   either_dart:
+  flutter_secure_storage:
 
 dev_dependencies:
   flutter_test:
