@@ -15,7 +15,7 @@ class AssetImageWidget extends StatelessWidget {
     this.size = const Size(24, 24),
     this.fit = BoxFit.contain,
     this.alignment = Alignment.center,
-    this.package = 'app_design',
+    this.package = 'design_system',
   });
 
   @override
