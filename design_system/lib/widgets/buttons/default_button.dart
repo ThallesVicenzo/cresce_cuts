@@ -1,3 +1,4 @@
+import 'package:design_system/widgets/colors/colors_palette.dart';
 import 'package:flutter/material.dart';
 
 class DefaultButton extends StatelessWidget {
@@ -26,14 +27,15 @@ class DefaultButton extends StatelessWidget {
             minHeight: size?.height ?? 32,
           ),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(8),
-            color: disable ? Colors.grey : Colors.blueAccent,
+            borderRadius: BorderRadius.circular(10),
+            color: disable ? Colors.grey : ColorsPalette.skyBlue,
           ),
           child: Center(
             child: Text(
               title,
               style: const TextStyle(
                 color: Colors.white,
+                fontWeight: FontWeight.bold,
               ),
             ),
           ),
