@@ -74,7 +74,7 @@ class SelectedDiscountTypeWidget extends StatelessWidget {
                             width: 1.5,
                           ),
                           right: BorderSide(
-                            color: discountType == DiscountType.perNumber
+                            color: discountType == DiscountType.perQuantity
                                 ? Colors.white
                                 : ColorsPalette.defaultBorder,
                             width: 1.5,
@@ -98,11 +98,11 @@ class SelectedDiscountTypeWidget extends StatelessWidget {
           ),
           Expanded(
             child: GestureDetector(
-              onTap: () => onTap(DiscountType.perNumber),
+              onTap: () => onTap(DiscountType.perQuantity),
               child: Container(
                 height: height,
                 decoration: BoxDecoration(
-                  color: discountType == DiscountType.perNumber
+                  color: discountType == DiscountType.perQuantity
                       ? ColorsPalette.skyBlue
                       : Colors.white,
                   borderRadius: BorderRadius.circular(4),
@@ -112,7 +112,7 @@ class SelectedDiscountTypeWidget extends StatelessWidget {
                     'Quantidade',
                     style: TextStyle(
                       fontWeight: FontWeight.w500,
-                      color: discountType == DiscountType.perNumber
+                      color: discountType == DiscountType.perQuantity
                           ? Colors.white
                           : ColorsPalette.skyBlue,
                     ),

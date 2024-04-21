@@ -1,5 +1,6 @@
+import 'package:cresce_cuts/core/domain/entities/product_entity.dart';
+import 'package:cresce_cuts/core/enums/discount_types.dart';
 import 'package:cresce_cuts/core/map_extensions.dart';
-import 'package:cresce_cuts/features/splash/domain/entities/product_entity.dart';
 
 class ProductModel extends ProductEntity {
   ProductModel({
@@ -25,7 +26,7 @@ class ProductModel extends ProductEntity {
         category: json.getValue('category'),
         description: json.getValue('description'),
         image: json.getValue('image'),
-        discount: json.getValue('discount'),
+        discount: DiscountType.fromString(json.getValue('discount')),
         activationDate: DateTime.parse(json.getValue('activationDate')),
         inactivationDate: DateTime.parse(json.getValue('inactivationDate')),
       );
