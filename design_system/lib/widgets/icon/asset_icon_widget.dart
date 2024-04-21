@@ -2,7 +2,7 @@ import 'package:design_system/enums/app_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class AtfIconWidget extends StatelessWidget {
+class AssetIconWidget extends StatelessWidget {
   final AppIcons icon;
   final Size size;
   final BoxFit fit;
@@ -14,7 +14,7 @@ class AtfIconWidget extends StatelessWidget {
   final String? customPath;
   final Size? backgroundSize;
 
-  const AtfIconWidget({
+  const AssetIconWidget({
     super.key,
     required this.icon,
     this.onTap,
