@@ -18,7 +18,9 @@ class SplashController extends ChangeNotifier {
     if (value == 0) {
       Modular.to.navigate(
         MainRoutes.home.route,
-        arguments: state.value.asSuccess,
+        arguments: {
+          'products': state.value.asSuccess,
+        },
       );
     }
   }
