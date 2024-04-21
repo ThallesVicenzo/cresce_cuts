@@ -7,13 +7,13 @@ import 'package:flutter_test/flutter_test.dart';
 void main() {
   group('app images ...', () {
     test('... should have a path', () {
-      const icons = AppImage.values;
+      const images = AppImage.values;
 
-      for (final icon in icons) {
+      for (final image in images) {
         expect(
-          icon.file.existsSync(),
+          image.file.existsSync(),
           true,
-          reason: 'Icon ${icon.name} not found in path ${icon.path}',
+          reason: 'Image ${image.name} not found in path ${image.path}',
         );
       }
     });
@@ -28,8 +28,8 @@ void main() {
             .where((icon) =>
                 icons.where((element) => element.path == icon).length > 1)
             .toList();
-        log('Duplicate icons: $duplicateIcons');
-        debugPrint('Duplicate icons: $duplicateIcons');
+        log('Duplicate Images: $duplicateIcons');
+        debugPrint('Duplicate Images: $duplicateIcons');
       }
       expect(iconsLength, expectedIconsList.length,
           reason: 'Duplicate Path $duplicateIcons');
