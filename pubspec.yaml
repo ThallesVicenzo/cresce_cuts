@@ -41,6 +41,12 @@ dependencies:
   dio:
   either_dart:
   flutter_secure_storage:
+  intl:
+  brasil_fields:
+  mask_text_input_formatter:
+
+  flutter_localizations:
+    sdk: flutter
 
 dev_dependencies:
   flutter_test:
