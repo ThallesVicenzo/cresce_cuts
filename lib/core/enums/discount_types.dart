@@ -1,7 +1,7 @@
 enum DiscountType {
-  perPrice('Desconto por preço'),
+  perPrice('Por preço'),
   percentage('Percentual'),
-  perNumber('Leve mais pague menos');
+  perNumber('Quantidade');
 
   const DiscountType(this.name);
 
