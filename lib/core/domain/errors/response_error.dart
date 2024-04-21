@@ -1,5 +1,6 @@
 import 'dart:developer';
-import '../client/client_http_exception.dart';
+
+import '../../client/client_http_exception.dart';
 
 abstract class ResponseError implements Exception {
   final String message;

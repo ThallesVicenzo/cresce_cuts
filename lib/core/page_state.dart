@@ -1,4 +1,4 @@
-import 'domain/response_error.dart';
+import 'domain/errors/response_error.dart';
 
 abstract class PageState<S extends Object?> {
   bool get isSuccess => this is SuccessState;
