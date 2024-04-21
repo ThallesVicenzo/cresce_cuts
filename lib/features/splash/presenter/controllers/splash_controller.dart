@@ -1,6 +1,6 @@
+import 'package:cresce_cuts/core/domain/entities/product_entity.dart';
 import 'package:cresce_cuts/core/main_routes.dart';
 import 'package:cresce_cuts/core/page_state.dart';
-import 'package:cresce_cuts/features/splash/domain/entities/product_entity.dart';
 import 'package:cresce_cuts/features/splash/domain/use_case/products_use_case.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';

@@ -1,3 +1,5 @@
+import 'package:cresce_cuts/core/enums/discount_types.dart';
+
 class ProductEntity {
   final int id;
   final String title;
@@ -7,7 +9,7 @@ class ProductEntity {
   final String category;
   final String description;
   final String image;
-  final String discount;
+  final DiscountType discount;
   final DateTime activationDate;
   final DateTime inactivationDate;
 

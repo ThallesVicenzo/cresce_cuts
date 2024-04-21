@@ -6,7 +6,7 @@ import 'package:design_system/widgets/image/network_image_widget.dart';
 import 'package:design_system/widgets/switch/app_switch.dart';
 import 'package:flutter/material.dart';
 
-import '../../../splash/domain/entities/product_entity.dart';
+import '../../../../core/domain/entities/product_entity.dart';
 import '../controllers/home_controller.dart';
 
 class DiscountInfo extends StatelessWidget {
@@ -91,7 +91,7 @@ class DiscountInfo extends StatelessWidget {
                               ),
                             ),
                             TextSpan(
-                              text: entity.discount,
+                              text: entity.discount.name,
                               style: const TextStyle(
                                 fontWeight: FontWeight.normal,
                                 fontSize: 14,
