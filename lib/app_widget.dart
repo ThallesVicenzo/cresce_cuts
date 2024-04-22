@@ -28,8 +28,15 @@ class AppWidget extends StatelessWidget {
         fontFamily: 'Rubik',
       ),
       builder: (context, child) {
-        return UiOverlayColor(
-          child: child!,
+        return GestureDetector(
+          onTap: () {
+            ScaffoldMessenger.of(context)
+                .removeCurrentSnackBar(reason: SnackBarClosedReason.swipe);
+            FocusManager.instance.primaryFocus?.unfocus();
+          },
+          child: UiOverlayColor(
+            child: child!,
+          ),
         );
       },
     );
