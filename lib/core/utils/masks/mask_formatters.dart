@@ -20,6 +20,8 @@ class MaskFormatters {
       mask: '(##) # ####-####', filter: {"#": RegExp(r'[0-9]')});
   static MaskTextInputFormatter get maskCEP => MaskTextInputFormatter(
       mask: '#####-###', filter: {"#": RegExp(r'[0-9]')});
+  MaskTextInputFormatter get maskPercentage =>
+      MaskTextInputFormatter(mask: '##,##', filter: {"#": RegExp(r'[0-9]')});
   static CentavosInputFormatter get maskMoney =>
       CentavosInputFormatter(moeda: true);
   static CpfOuCnpjFormatter get maskCpfOrCnpj => CpfOuCnpjFormatter();
