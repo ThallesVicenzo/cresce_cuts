@@ -9,8 +9,8 @@ import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../../core/main_routes.dart';
 import '../controllers/home_controller.dart';
-import '../widgets/discount_info.dart';
-import '../widgets/select_discount_dialog.dart';
+import '../widgets/home_widgets/discount_info.dart';
+import '../widgets/home_widgets/select_discount_dialog.dart';
 
 class HomePage extends StatefulWidget {
   final HomeController controller;
