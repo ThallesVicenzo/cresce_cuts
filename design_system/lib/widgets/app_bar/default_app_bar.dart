@@ -5,7 +5,7 @@ import '../colors/colors_palette.dart';
 class DefaultAppBar extends StatelessWidget implements PreferredSizeWidget {
   const DefaultAppBar({
     super.key,
-    this.height = kToolbarHeight,
+    this.height = 65,
     required this.title,
     required this.hasLeading,
     this.leading,
@@ -21,6 +21,8 @@ class DefaultAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       backgroundColor: Colors.white,
       automaticallyImplyLeading: hasLeading,
+      shadowColor: const Color(0xff99CCE3),
+      elevation: 0.4,
       leading: Visibility(
         visible: hasLeading,
         child: IconButton(
