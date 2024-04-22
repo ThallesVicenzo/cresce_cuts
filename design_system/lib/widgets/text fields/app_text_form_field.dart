@@ -70,11 +70,15 @@ class AppTextFormField extends StatelessWidget {
           decoration: InputDecoration(
             suffix: sufix,
             errorText: errorText,
+            errorStyle: const TextStyle(fontSize: 0),
             isCollapsed: maxLines == null ? true : false,
             contentPadding: const EdgeInsets.all(8),
-            errorBorder: outlineBorder,
+            errorBorder: errorBorder,
             border: outlineBorder,
-            constraints: BoxConstraints(maxHeight: height ?? 48),
+            constraints: BoxConstraints(
+              minHeight: height ?? 48,
+              maxHeight: 96,
+            ),
             hintText: hintText,
             disabledBorder: outlineBorder,
             enabledBorder: outlineBorder,
