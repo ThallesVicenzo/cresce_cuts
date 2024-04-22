@@ -20,6 +20,7 @@ class AppTextFormField extends StatelessWidget {
     this.inputFormatters,
     this.keyboardType = TextInputType.text,
     this.initialValue,
+    this.sufix,
   });
 
   final String? label;
@@ -35,6 +36,7 @@ class AppTextFormField extends StatelessWidget {
   final void Function()? onTap;
   final List<TextInputFormatter>? inputFormatters;
   final TextInputType? keyboardType;
+  final Widget? sufix;
 
   @override
   Widget build(BuildContext context) {
@@ -66,6 +68,7 @@ class AppTextFormField extends StatelessWidget {
           cursorColor: ColorsPalette.skyBlue,
           onChanged: onChanged,
           decoration: InputDecoration(
+            suffix: sufix,
             errorText: errorText,
             isCollapsed: maxLines == null ? true : false,
             contentPadding: const EdgeInsets.all(8),
