@@ -44,6 +44,7 @@ dependencies:
   intl:
   brasil_fields:
   mask_text_input_formatter:
+  dotted_border:
 
   flutter_localizations:
     sdk: flutter
