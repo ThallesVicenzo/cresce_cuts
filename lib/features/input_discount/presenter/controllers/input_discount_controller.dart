@@ -27,6 +27,7 @@ class InputDiscountController extends ChangeNotifier {
     TextEditingController(),
     TextEditingController(),
     TextEditingController(),
+    TextEditingController(),
   ];
 
   String leftFieldLabel(DiscountType discountType) {
@@ -109,6 +110,7 @@ class InputDiscountController extends ChangeNotifier {
     GlobalKey<FormState>(),
     GlobalKey<FormState>(),
     GlobalKey<FormState>(),
+    GlobalKey<FormState>(),
   ];
 
   String? validateField(int index) {
@@ -126,6 +128,11 @@ class InputDiscountController extends ChangeNotifier {
         formKeys[4].currentState!.validate() &&
         formKeys[5].currentState!.validate() &&
         file.value.path.isNotEmpty) {
+      if (discountType == DiscountType.perQuantity) {
+        if (formKeys[6].currentState!.validate() == false) {
+          return;
+        }
+      }
       state.value = LoadingState();
 
       final result = await useCase.call(
@@ -136,6 +143,9 @@ class InputDiscountController extends ChangeNotifier {
             fieldsControllers[2].text.clearPercentageAndConvertToDouble(),
         finalPrice:
             fieldsControllers[3].text.clearPercentageAndConvertToDouble(),
+        price: discountType == DiscountType.perQuantity
+            ? fieldsControllers[6].text.clearPercentageAndConvertToDouble()
+            : null,
         activationDate: DateTime.parse(
             '${fieldsControllers[4].text.convertDateToServerFormat()} ${DateTime.now().formattedTimeWithSeconds}'),
         inactivationDate: DateTime.parse(

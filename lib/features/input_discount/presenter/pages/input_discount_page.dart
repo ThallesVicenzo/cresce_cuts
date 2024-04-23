@@ -1,6 +1,7 @@
 import 'package:cresce_cuts/core/enums/discount_types.dart';
 import 'package:cresce_cuts/core/main_routes.dart';
 import 'package:cresce_cuts/core/page_state.dart';
+import 'package:cresce_cuts/core/utils/masks/mask_formatters.dart';
 import 'package:cresce_cuts/features/input_discount/presenter/controllers/input_discount_controller.dart';
 import 'package:design_system/pages/default_erro_page.dart';
 import 'package:design_system/widgets/app_bar/default_app_bar.dart';
@@ -8,6 +9,7 @@ import 'package:design_system/widgets/buttons/floating_button.dart';
 import 'package:design_system/widgets/colors/colors_palette.dart';
 import 'package:design_system/widgets/text%20fields/app_text_form_field.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import '../widgets/activation_date_fields.dart';
@@ -121,6 +123,26 @@ class _InputDiscountPageState extends State<InputDiscountPage> {
                     child: InputDiscountFields(
                       controller: widget.controller,
                       discountType: widget.discountType,
+                    ),
+                  ),
+                  Visibility(
+                    visible: widget.discountType == DiscountType.perQuantity,
+                    child: Form(
+                      key: widget.controller.formKeys[6],
+                      autovalidateMode: AutovalidateMode.always,
+                      child: AppTextFormField(
+                        label: 'Preço',
+                        controller: widget.controller.fieldsControllers[6],
+                        inputFormatters: [
+                          FilteringTextInputFormatter.digitsOnly,
+                          MaskFormatters.maskMoney,
+                        ],
+                        keyboardType: TextInputType.number,
+                        validator: (p0) =>
+                            widget.controller.fieldsControllers[6].text.isEmpty
+                                ? ''
+                                : null,
+                      ),
                     ),
                   ),
                   Padding(
