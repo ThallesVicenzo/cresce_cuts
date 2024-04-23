@@ -4,7 +4,6 @@ import 'package:cresce_cuts/core/map_extensions.dart';
 
 class ProductModel extends ProductEntity {
   ProductModel({
-    required super.id,
     required super.title,
     required super.initialPrice,
     required super.finalPrice,
@@ -18,7 +17,6 @@ class ProductModel extends ProductEntity {
   });
 
   factory ProductModel.fromJson(Map<String, dynamic> json) => ProductModel(
-        id: json.getValue('id'),
         title: json.getValue('title'),
         initialPrice: json.getValue('initialPrice'),
         finalPrice: json.getValue('finalPrice'),
