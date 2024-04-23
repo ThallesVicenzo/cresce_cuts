@@ -131,6 +131,15 @@ class _SplashScreen extends State<HomePage> {
             context: context,
             builder: (context) => SelectDiscountDialog(
               discountType: discountType,
+              onPressed: () {
+                Modular.to.pop();
+                Modular.to.pushNamed(
+                  MainRoutes.inputDiscount.route,
+                  arguments: {
+                    'discount': discountType.value,
+                  },
+                );
+              },
             ),
           );
         },
