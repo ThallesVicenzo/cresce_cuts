@@ -11,11 +11,11 @@ import 'package:flutter_modular/flutter_modular.dart';
 class AppModule extends Module {
   @override
   void binds(i) {
-    i.addSingleton<ClientHttp>(
+    i.add<ClientHttp>(
       DioClient.new,
       key: 'client',
     );
-    i.addSingleton<SecureStorage>(
+    i.add<SecureStorage>(
       SecureStorageImpl.new,
       key: 'storage',
     );
