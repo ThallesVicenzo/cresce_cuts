@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:cresce_cuts/core/enums/discount_types.dart';
 import 'package:cresce_cuts/core/secure_storage/keys/secure_storage_keys.dart';
 import 'package:cresce_cuts/core/secure_storage/secure_storage.dart';
-import 'package:cresce_cuts/core/utils/extensions/date_time_extension.dart';
 import 'package:cresce_cuts/features/input_discount/infra/data_source/send_product_data_source.dart';
 
 class EditProductDataSourceImpl implements EditProductDataSource {
@@ -30,7 +29,8 @@ class EditProductDataSourceImpl implements EditProductDataSource {
       "title": discountTitle,
       "initialPrice": initialPrice,
       "finalPrice": finalPrice,
-      "isActive": activationDate.isTodayDate,
+      "isActive": DateTime.now().compareTo(inactivationDate) < 0 &&
+          DateTime.now().compareTo(activationDate) > 0,
       "price": price,
       "category": "Discount",
       "description": description,

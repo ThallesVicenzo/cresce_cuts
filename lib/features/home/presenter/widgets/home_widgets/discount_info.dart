@@ -47,10 +47,10 @@ class DiscountInfo extends StatelessWidget {
                 AnimatedBuilder(
                   animation: controller,
                   builder: (context, child) => AppSwitch(
-                    value: entity.activationDate.isTodayDate,
-                    onChanged: (tap) {
-                      controller.tapSwitch(tap, index);
-                    },
+                    value:
+                        DateTime.now().compareTo(entity.inactivationDate) < 0 &&
+                            DateTime.now().compareTo(entity.activationDate) > 0,
+                    onChanged: (tap) {},
                   ),
                 ),
               ],
