@@ -18,9 +18,11 @@ class HomeDetailsPage extends StatefulWidget {
     super.key,
     required this.productEntity,
     required this.controller,
+    required this.index,
   });
 
   final ProductEntity productEntity;
+  final int index;
   final HomeDetailsController controller;
 
   @override
@@ -110,6 +112,7 @@ class _HomeDetailsPageState extends State<HomeDetailsPage> {
             arguments: {
               'discount': widget.productEntity.discount,
               'product': widget.productEntity,
+              'index': widget.index
             },
           );
         },

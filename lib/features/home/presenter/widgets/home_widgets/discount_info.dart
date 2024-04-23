@@ -172,6 +172,7 @@ class DiscountInfo extends StatelessWidget {
                 HomeRoutes.homeDetailsPage.path,
                 arguments: {
                   'product': entity,
+                  'index': index,
                 },
               );
             },

@@ -40,6 +40,7 @@ class HomeModule extends Module {
       child: (context) => HomeDetailsPage(
         controller: context.read<HomeDetailsController>(),
         productEntity: r.args.data['product'] as ProductEntity,
+        index: r.args.data['index'] as int,
       ),
     );
   }
