@@ -6,7 +6,7 @@ extension DateTimeExtension on DateTime {
 
   /// example : 14:00:00
   String get formattedTimeWithSeconds =>
-      DateFormat('HH:ss', 'pt_br').format(this);
+      DateFormat('HH:mm:ss', 'pt_br').format(this);
 
   ///example : 14:00
   String get formattedTime =>
