@@ -1,3 +1,4 @@
+import 'package:cresce_cuts/core/domain/entities/product_entity.dart';
 import 'package:cresce_cuts/core/enums/discount_types.dart';
 import 'package:cresce_cuts/core/main_routes.dart';
 import 'package:cresce_cuts/core/page_state.dart';
@@ -21,10 +22,14 @@ class InputDiscountPage extends StatefulWidget {
     super.key,
     required this.discountType,
     required this.controller,
+    this.entity,
+    this.index,
   });
 
   final DiscountType discountType;
   final InputDiscountController controller;
+  final ProductEntity? entity;
+  final int? index;
 
   @override
   State<InputDiscountPage> createState() => _InputDiscountPageState();
@@ -34,6 +39,7 @@ class _InputDiscountPageState extends State<InputDiscountPage> {
   @override
   void initState() {
     widget.controller.state.addListener(listenableErrorState);
+    widget.controller.getValues(widget.entity);
     super.initState();
   }
 
@@ -166,7 +172,12 @@ class _InputDiscountPageState extends State<InputDiscountPage> {
               size: const Size(double.infinity, 56),
               title: 'Salvar',
               onPressed: () {
-                widget.controller.saveDiscount(widget.discountType);
+                if (widget.entity != null && widget.index != null) {
+                  widget.controller
+                      .editDiscount(widget.discountType, widget.index!);
+                } else {
+                  widget.controller.saveDiscount(widget.discountType);
+                }
               },
             ),
     );
