@@ -1,8 +1,7 @@
 import 'package:cresce_cuts/core/main_routes.dart';
 
 enum HomeRoutes {
-  homePage('/'),
-  inputDiscountPage('/input-discount');
+  homePage('/');
 
   const HomeRoutes(this.route);
 

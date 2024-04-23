@@ -1,5 +1,5 @@
 import 'package:cresce_cuts/core/enums/discount_types.dart';
-import 'package:cresce_cuts/features/home/home_routes.dart';
+import 'package:cresce_cuts/core/main_routes.dart';
 import 'package:design_system/widgets/buttons/default_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -37,8 +37,9 @@ class SelectDiscountDialog extends StatelessWidget {
             size: const Size(60, 40),
             title: 'Aceitar',
             onPressed: () {
+              Modular.to.pop();
               Modular.to.pushNamed(
-                HomeRoutes.inputDiscountPage.path,
+                MainRoutes.inputDiscount.route,
                 arguments: {
                   'discount': discountType.value,
                 },

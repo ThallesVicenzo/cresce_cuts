@@ -1,8 +1,10 @@
+import 'dart:io';
+
 import 'package:cresce_cuts/core/utils/extensions/date_time_extension.dart';
 import 'package:design_system/enums/app_icons.dart';
 import 'package:design_system/widgets/colors/colors_palette.dart';
 import 'package:design_system/widgets/icon/asset_icon_widget.dart';
-import 'package:design_system/widgets/image/network_image_widget.dart';
+import 'package:design_system/widgets/image/file_image_widget.dart';
 import 'package:design_system/widgets/switch/app_switch.dart';
 import 'package:flutter/material.dart';
 
@@ -55,8 +57,8 @@ class DiscountInfo extends StatelessWidget {
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                NetworkImageWidget(
-                  url: entity.image,
+                FileImageWidget(
+                  file: File(entity.image),
                   size: const Size(100, 100),
                 ),
                 const SizedBox(
