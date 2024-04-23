@@ -1,12 +1,14 @@
 import 'dart:io';
 
 import 'package:cresce_cuts/core/utils/extensions/date_time_extension.dart';
+import 'package:cresce_cuts/features/home/home_routes.dart';
 import 'package:design_system/enums/app_icons.dart';
 import 'package:design_system/widgets/colors/colors_palette.dart';
 import 'package:design_system/widgets/icon/asset_icon_widget.dart';
 import 'package:design_system/widgets/image/file_image_widget.dart';
 import 'package:design_system/widgets/switch/app_switch.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../../../core/domain/entities/product_entity.dart';
 import '../../controllers/home_controller.dart';
@@ -164,23 +166,33 @@ class DiscountInfo extends StatelessWidget {
           const Divider(
             color: ColorsPalette.defaultBorder,
           ),
-          const Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                'Ver desconto',
-                style: TextStyle(
-                  fontWeight: FontWeight.w500,
-                  fontSize: 14,
+          GestureDetector(
+            onTap: () {
+              Modular.to.pushNamed(
+                HomeRoutes.homeDetailsPage.path,
+                arguments: {
+                  'product': entity,
+                },
+              );
+            },
+            child: const Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'Ver desconto',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 14,
+                  ),
                 ),
-              ),
-              SizedBox(
-                width: 4,
-              ),
-              AssetIconWidget(
-                icon: AppIcons.discount,
-              ),
-            ],
+                SizedBox(
+                  width: 4,
+                ),
+                AssetIconWidget(
+                  icon: AppIcons.discount,
+                ),
+              ],
+            ),
           ),
         ],
       ),
