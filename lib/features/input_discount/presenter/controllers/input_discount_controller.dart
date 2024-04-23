@@ -33,6 +33,7 @@ class InputDiscountController extends ChangeNotifier {
     TextEditingController(),
     TextEditingController(),
     TextEditingController(),
+    TextEditingController(),
   ];
 
   final file = ValueNotifier<File>(File(''));
@@ -52,6 +53,8 @@ class InputDiscountController extends ChangeNotifier {
           entity.inactivationDate.formattedDayMonthAndYear;
 
       fieldsControllers[6].text = entity.price.toString().asCurrency();
+
+      fieldsControllers[7].text = entity.discount.name;
 
       file.value = File(entity.image);
 

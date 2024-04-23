@@ -3,6 +3,7 @@ import 'package:cresce_cuts/core/enums/discount_types.dart';
 import 'package:cresce_cuts/core/main_routes.dart';
 import 'package:cresce_cuts/core/page_state.dart';
 import 'package:cresce_cuts/core/utils/masks/mask_formatters.dart';
+import 'package:cresce_cuts/features/home/presenter/widgets/home_widgets/select_discount_dialog.dart';
 import 'package:cresce_cuts/features/input_discount/presenter/controllers/input_discount_controller.dart';
 import 'package:design_system/pages/default_erro_page.dart';
 import 'package:design_system/widgets/app_bar/default_app_bar.dart';
@@ -61,8 +62,10 @@ class _InputDiscountPageState extends State<InputDiscountPage> {
   Widget build(BuildContext context) {
     bool keyboardIsOpened = MediaQuery.of(context).viewInsets.bottom != 0.0;
     return Scaffold(
-      appBar: const DefaultAppBar(
-        title: 'Cadastro desconto',
+      appBar: DefaultAppBar(
+        title: widget.entity == null && widget.index == null
+            ? 'Cadastro desconto'
+            : 'Editar desconto',
         hasLeading: true,
       ),
       body: ValueListenableBuilder(
@@ -122,7 +125,31 @@ class _InputDiscountPageState extends State<InputDiscountPage> {
                   AppTextFormField(
                     label: 'Tipo do desconto',
                     canFocus: false,
-                    initialValue: widget.discountType.name,
+                    controller: widget.entity == null && widget.index == null
+                        ? null
+                        : widget.controller.fieldsControllers[7],
+                    initialValue: widget.entity == null && widget.index == null
+                        ? widget.discountType.name
+                        : null,
+                    onTap: () {
+                      widget.entity == null && widget.index == null
+                          ? null
+                          : showDialog(
+                              context: context,
+                              builder: (context) {
+                                final discountNotifier =
+                                    ValueNotifier(widget.discountType);
+                                return SelectDiscountDialog(
+                                  discountType: discountNotifier,
+                                  onPressed: () {
+                                    widget.controller.fieldsControllers[7]
+                                        .text = discountNotifier.value.name;
+                                    Modular.to.pop();
+                                  },
+                                );
+                              },
+                            );
+                    },
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 8.0),
