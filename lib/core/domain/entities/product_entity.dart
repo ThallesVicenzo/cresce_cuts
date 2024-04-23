@@ -1,7 +1,6 @@
 import 'package:cresce_cuts/core/enums/discount_types.dart';
 
 class ProductEntity {
-  final int id;
   final String title;
   final double initialPrice;
   final double finalPrice;
@@ -14,7 +13,6 @@ class ProductEntity {
   final DateTime inactivationDate;
 
   ProductEntity({
-    required this.id,
     required this.title,
     required this.initialPrice,
     required this.finalPrice,
