@@ -16,10 +16,12 @@ class DiscountInfo extends StatelessWidget {
     super.key,
     required this.controller,
     required this.entity,
+    required this.index,
   });
 
   final HomeController controller;
   final ProductEntity entity;
+  final int index;
 
   @override
   Widget build(BuildContext context) {
@@ -40,12 +42,12 @@ class DiscountInfo extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                ValueListenableBuilder<bool>(
-                  valueListenable: controller.switchValue,
-                  builder: (context, value, child) => AppSwitch(
-                    value: value,
+                AnimatedBuilder(
+                  animation: controller,
+                  builder: (context, child) => AppSwitch(
+                    value: controller.switchValue.value[index],
                     onChanged: (tap) {
-                      controller.tapSwitch(tap);
+                      controller.tapSwitch(tap, index);
                     },
                   ),
                 ),
