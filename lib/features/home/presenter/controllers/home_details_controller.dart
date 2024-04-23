@@ -22,13 +22,13 @@ class HomeDetailsController extends ChangeNotifier {
 
     switch (entity.discount) {
       case DiscountType.perPrice:
-        return '${entity.initialPrice - entity.finalPrice}';
+        return '${entity.finalPrice}';
       case DiscountType.percentage:
         return '${entity.initialPrice - percentage}';
       case DiscountType.perQuantity:
         return '${entity.price}';
       default:
-        return '${entity.initialPrice - entity.finalPrice}';
+        return '${entity.finalPrice}';
     }
   }
 
