@@ -4,6 +4,7 @@ import 'package:cresce_cuts/core/client/client_http.dart';
 import 'package:cresce_cuts/core/enums/discount_types.dart';
 import 'package:cresce_cuts/core/secure_storage/keys/secure_storage_keys.dart';
 import 'package:cresce_cuts/core/secure_storage/secure_storage.dart';
+import 'package:cresce_cuts/core/utils/extensions/date_time_extension.dart';
 import 'package:cresce_cuts/features/input_discount/infra/data_source/send_product_data_source.dart';
 
 class SendProductDataSourceImpl implements SendProductDataSource {
@@ -39,7 +40,7 @@ class SendProductDataSourceImpl implements SendProductDataSource {
         "title": discountTitle,
         "initialPrice": initialPrice,
         "finalPrice": finalPrice,
-        "isActive": true,
+        "isActive": activationDate.isTodayDate,
         "category": "Discount",
         "description": description,
         "image": image,
