@@ -1,4 +1,3 @@
-// ignore: depend_on_referenced_packages
 import 'package:intl/intl.dart';
 
 extension StringExtensions on String {
@@ -156,6 +155,28 @@ extension StringExtensions on String {
       return 0.0;
     }
     return doubleValue;
+  }
+
+  double clearPercentageAndConvertToDouble() {
+    String value = this;
+    if (value.contains("R\$")) {
+      value = value.replaceAll("R\$", "");
+    }
+
+    if (value.contains(',')) {
+      value = value.replaceAll('.', '').replaceFirst(',', '.');
+    }
+    if (value.contains("%")) {
+      replaceAll('%', "");
+    }
+
+    final convertedValue = double.tryParse(value);
+
+    if (convertedValue == null) {
+      return 0.0;
+    }
+
+    return convertedValue;
   }
 
   /// From: 14/06/2021 To 2021-06-14
