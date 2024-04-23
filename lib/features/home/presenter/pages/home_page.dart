@@ -64,8 +64,10 @@ class _SplashScreen extends State<HomePage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  CircularProgressIndicator(
-                    color: ColorsPalette.skyBlue,
+                  Center(
+                    child: CircularProgressIndicator(
+                      color: ColorsPalette.skyBlue,
+                    ),
                   ),
                 ],
               );
@@ -127,8 +129,9 @@ class _SplashScreen extends State<HomePage> {
         onPressed: () {
           showDialog(
             context: context,
-            builder: (context) =>
-                SelectDiscountDialog(discountType: discountType),
+            builder: (context) => SelectDiscountDialog(
+              discountType: discountType,
+            ),
           );
         },
       ),
