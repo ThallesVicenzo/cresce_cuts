@@ -4,6 +4,7 @@ import 'package:cresce_cuts/core/map_extensions.dart';
 
 class ProductModel extends ProductEntity {
   ProductModel({
+    required super.price,
     required super.title,
     required super.initialPrice,
     required super.finalPrice,
@@ -27,5 +28,6 @@ class ProductModel extends ProductEntity {
         discount: DiscountType.fromString(json.getValue('discount')),
         activationDate: json.getValue('activationDate'),
         inactivationDate: json.getValue('inactivationDate'),
+        price: json.getValue('price') ?? 0.0,
       );
 }

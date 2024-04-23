@@ -14,10 +14,12 @@ class ProductModel extends ProductEntity {
     required super.discount,
     required super.activationDate,
     required super.inactivationDate,
+    required super.price,
   });
 
   factory ProductModel.fromJson(Map<String, dynamic> json) => ProductModel(
         title: json.getValue('title'),
+        price: json.getValue('price') ?? 0.0,
         initialPrice: json.getValue('initialPrice'),
         finalPrice: json.getValue('finalPrice'),
         isActive: json.getValue('isActive'),

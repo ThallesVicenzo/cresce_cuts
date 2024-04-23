@@ -9,6 +9,7 @@ abstract class SendProductRepository {
     required DiscountType discountType,
     required double initialPrice,
     required double finalPrice,
+    required double? price,
     required DateTime activationDate,
     required DateTime inactivationDate,
     required String image,

@@ -4,6 +4,7 @@ class ProductEntity {
   final String title;
   final double initialPrice;
   final double finalPrice;
+  final double? price;
   final bool isActive;
   final String category;
   final String description;
@@ -14,6 +15,7 @@ class ProductEntity {
 
   ProductEntity({
     required this.title,
+    required this.price,
     required this.initialPrice,
     required this.finalPrice,
     required this.isActive,
