@@ -1,16 +1,18 @@
+import 'dart:io';
+
 import 'package:design_system/widgets/colors/colors_palette.dart';
 import 'package:flutter/cupertino.dart';
 
-class NetworkImageWidget extends StatelessWidget {
-  final String url;
+class FileImageWidget extends StatelessWidget {
+  final File file;
   final Size size;
   final BoxFit fit;
   final Alignment alignment;
   final String? package;
 
-  const NetworkImageWidget({
+  const FileImageWidget({
     super.key,
-    required this.url,
+    required this.file,
     this.size = const Size(24, 24),
     this.fit = BoxFit.contain,
     this.alignment = Alignment.center,
@@ -26,8 +28,8 @@ class NetworkImageWidget extends StatelessWidget {
           color: ColorsPalette.defaultBorder,
         ),
       ),
-      child: Image.network(
-        url,
+      child: Image.file(
+        file,
         width: size.width,
         height: size.height,
         fit: fit,
