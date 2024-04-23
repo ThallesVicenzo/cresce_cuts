@@ -13,7 +13,7 @@ class FloatingButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 10),
-      height: 80,
+      height: 100,
       width: double.infinity,
       decoration: const BoxDecoration(
         color: Colors.white,
