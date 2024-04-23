@@ -4,6 +4,7 @@ import 'package:cresce_cuts/core/main_routes.dart';
 import 'package:cresce_cuts/core/secure_storage/secure_storage.dart';
 import 'package:cresce_cuts/core/secure_storage/secure_storage_impl.dart';
 import 'package:cresce_cuts/features/home/home_module.dart';
+import 'package:cresce_cuts/features/input_discount/input_discount_module.dart';
 import 'package:cresce_cuts/features/splash/splash_module.dart';
 import 'package:design_system/pages/default_erro_page.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -31,6 +32,11 @@ class AppModule extends Module {
     r.module(
       MainRoutes.home.route,
       module: HomeModule(),
+    );
+
+    r.module(
+      MainRoutes.inputDiscount.route,
+      module: InputDiscountModule(),
     );
 
     r.child(
