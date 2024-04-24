@@ -37,10 +37,13 @@ class InputDiscountPage extends StatefulWidget {
 }
 
 class _InputDiscountPageState extends State<InputDiscountPage> {
+  late final ValueNotifier<DiscountType> discountNotifier;
+
   @override
   void initState() {
     widget.controller.state.addListener(listenableErrorState);
     widget.controller.getValues(widget.entity);
+    discountNotifier = ValueNotifier(widget.discountType);
     super.initState();
   }
 
@@ -137,13 +140,12 @@ class _InputDiscountPageState extends State<InputDiscountPage> {
                           : showDialog(
                               context: context,
                               builder: (context) {
-                                final discountNotifier =
-                                    ValueNotifier(widget.discountType);
                                 return SelectDiscountDialog(
                                   discountType: discountNotifier,
                                   onPressed: () {
-                                    widget.controller.fieldsControllers[7]
-                                        .text = discountNotifier.value.name;
+                                    widget.controller.changeDiscountType(
+                                      widget.discountType,
+                                    );
                                     Modular.to.pop();
                                   },
                                 );
@@ -153,28 +155,39 @@ class _InputDiscountPageState extends State<InputDiscountPage> {
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 8.0),
-                    child: InputDiscountFields(
-                      controller: widget.controller,
-                      discountType: widget.discountType,
+                    child: ValueListenableBuilder(
+                      valueListenable: discountNotifier,
+                      builder: (context, value, _) => InputDiscountFields(
+                        controller: widget.controller,
+                        leftLabel: widget.controller.leftFieldLabel(value),
+                        leftInputFormatters:
+                            widget.controller.setLeftFieldFormatters(value),
+                        rightLabel: widget.controller.rightFieldLabel(value),
+                        rightInputFormatters:
+                            widget.controller.setRightFieldFormatters(value),
+                      ),
                     ),
                   ),
-                  Visibility(
-                    visible: widget.discountType == DiscountType.perQuantity,
-                    child: Form(
-                      key: widget.controller.formKeys[6],
-                      autovalidateMode: AutovalidateMode.always,
-                      child: AppTextFormField(
-                        label: 'Preço',
-                        controller: widget.controller.fieldsControllers[6],
-                        inputFormatters: [
-                          FilteringTextInputFormatter.digitsOnly,
-                          MaskFormatters.maskMoney,
-                        ],
-                        keyboardType: TextInputType.number,
-                        validator: (p0) =>
-                            widget.controller.fieldsControllers[6].text.isEmpty
-                                ? ''
-                                : null,
+                  ValueListenableBuilder(
+                    valueListenable: discountNotifier,
+                    builder: (context, value, _) => Visibility(
+                      visible: value == DiscountType.perQuantity,
+                      child: Form(
+                        key: widget.controller.formKeys[6],
+                        autovalidateMode: AutovalidateMode.always,
+                        child: AppTextFormField(
+                          label: 'Preço',
+                          controller: widget.controller.fieldsControllers[6],
+                          inputFormatters: [
+                            FilteringTextInputFormatter.digitsOnly,
+                            MaskFormatters.maskMoney,
+                          ],
+                          keyboardType: TextInputType.number,
+                          validator: (p0) => widget
+                                  .controller.fieldsControllers[6].text.isEmpty
+                              ? ''
+                              : null,
+                        ),
                       ),
                     ),
                   ),

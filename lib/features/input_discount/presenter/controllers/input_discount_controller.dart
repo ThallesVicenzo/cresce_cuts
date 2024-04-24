@@ -66,6 +66,12 @@ class InputDiscountController extends ChangeNotifier {
     }
   }
 
+  void changeDiscountType(DiscountType discount) {
+    fieldsControllers[7].text = discount.name;
+    fieldsControllers[2].clear();
+    fieldsControllers[3].clear();
+  }
+
   String leftFieldLabel(DiscountType discountType) {
     switch (discountType.name.toUpperCase().trim()) {
       case 'POR PREÇO':
