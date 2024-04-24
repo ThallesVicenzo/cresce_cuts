@@ -1,6 +1,6 @@
-import 'package:cresce_cuts/core/enums/discount_types.dart';
 import 'package:design_system/widgets/text%20fields/app_text_form_field.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../controllers/input_discount_controller.dart';
 
@@ -8,11 +8,20 @@ class InputDiscountFields extends StatefulWidget {
   const InputDiscountFields({
     super.key,
     required this.controller,
-    required this.discountType,
+    required this.leftLabel,
+    this.leftInputFormatters,
+    required this.rightLabel,
+    this.rightInputFormatters,
+    this.sufix,
   });
 
   final InputDiscountController controller;
-  final DiscountType discountType;
+  final String leftLabel;
+  final List<TextInputFormatter>? leftInputFormatters;
+  final String rightLabel;
+  final List<TextInputFormatter>? rightInputFormatters;
+
+  final Widget? sufix;
 
   @override
   State<InputDiscountFields> createState() => _InputDiscountFieldsState();
@@ -28,9 +37,8 @@ class _InputDiscountFieldsState extends State<InputDiscountFields> {
             key: widget.controller.formKeys[2],
             autovalidateMode: AutovalidateMode.always,
             child: AppTextFormField(
-              label: widget.controller.leftFieldLabel(widget.discountType),
-              inputFormatters:
-                  widget.controller.setLeftFieldFormatters(widget.discountType),
+              label: widget.leftLabel,
+              inputFormatters: widget.leftInputFormatters,
               keyboardType: TextInputType.number,
               controller: widget.controller.fieldsControllers[2],
               validator: (p0) =>
@@ -48,15 +56,9 @@ class _InputDiscountFieldsState extends State<InputDiscountFields> {
             key: widget.controller.formKeys[3],
             autovalidateMode: AutovalidateMode.always,
             child: AppTextFormField(
-              label: widget.controller.rightFieldLabel(widget.discountType),
-              inputFormatters: widget.controller
-                  .setRightFieldFormatters(widget.discountType),
-              sufix: widget.discountType.name == 'Percentual'
-                  ? const Icon(
-                      Icons.percent,
-                      size: 18,
-                    )
-                  : null,
+              label: widget.rightLabel,
+              inputFormatters: widget.rightInputFormatters,
+              sufix: widget.sufix,
               keyboardType: TextInputType.number,
               controller: widget.controller.fieldsControllers[3],
               validator: (p0) =>
