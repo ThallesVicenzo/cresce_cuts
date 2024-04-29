@@ -1,4 +1,4 @@
-Olá, esse é a minha versão do Cresce_cuts e, dei meu máximo para fazê-la nesse curto tempo dado.<br/>
+Olá, esse é a minha versão do Cresce_cuts e dei meu máximo para fazê-la nesse curto tempo dado.<br/>
 <br/>
 Para rodar o aplicativo no seu disposivo eu disponibilizei uma APK no repositório.<br/>
 <br />
